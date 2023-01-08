@@ -17,6 +17,7 @@ task_entry = Entry(frame,width=22,font="arial 20",bd=0)
 task_entry.place(x=10,y=7)
 task_entry.focus()
 
-
+b =Button(frame,text="ADD",font="arial 20 bold", width=6,bg="#5a95ff",fg="#fff",bd=0)
+b.place(x=300 ,y=0)
 
 root.mainloop()
