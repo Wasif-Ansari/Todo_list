@@ -17,6 +17,16 @@ def addtask():
         tasklist.append(task)
         listbox.insert(END, task)
 
+def deletetask():
+    task = str(listbox.get(ANCHOR))
+    if task in tasklist:
+        tasklist.remove(task)
+        with open("tasks.txt", 'w') as taskfile:
+            for task in tasklist:
+                taskfile.write(task+"\n")
+        
+        listbox.delete(ANCHOR)
+
 
 heading = Label(root,text="TO-DO-LIST",justify=CENTER,font="50px")
 heading.place(x=125,y=20,height=100,width=150)
