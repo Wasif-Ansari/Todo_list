@@ -28,6 +28,22 @@ def deletetask():
         listbox.delete(ANCHOR)
 
 
+def opentaskfile():
+    try:
+        global tasklist
+        with open("tasks.txt", "r") as taskfile:
+            tasks = taskfile.readlines()
+
+        for task in tasks:
+            if task!='\n':
+                tasklist.append(task)
+                listbox.insert(END , task)
+    except:
+        file = open("tasks.txt","w")
+        file.close()
+
+
+
 heading = Label(root,text="TO-DO-LIST",justify=CENTER,font="50px")
 heading.place(x=125,y=20,height=100,width=150)
 
