@@ -6,6 +6,18 @@ root.title("MY TODO LIST")
 root.geometry("400x650+400+100")
 root.resizable(False,False)
 
+tasklist = []
+def addtask():
+    task = task_entry.get()
+    task_entry.delete(0,END)
+
+    if task:
+        with open("tasks.txt", "a") as taskfile:
+            taskfile.write(f"\n{task}")
+        tasklist.append(task)
+        listbox.insert(END, task)
+
+
 heading = Label(root,text="TO-DO-LIST",justify=CENTER,font="50px")
 heading.place(x=125,y=20,height=100,width=150)
 
@@ -31,5 +43,9 @@ scrollbar.pack(side=RIGHT, fill=BOTH)
 
 listbox.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=listbox.yview)
+
+
+#delete
+b2 = Button(root,text="DEL",bd=0,font="15px",bg="red").pack(side=BOTTOM, pady=13)
 
 root.mainloop()
