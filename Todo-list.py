@@ -55,7 +55,7 @@ task_entry = Entry(frame,width=22,font="arial 20",bd=0)
 task_entry.place(x=10,y=7)
 task_entry.focus()
 
-b =Button(frame,text="ADD",font="arial 20 bold", width=6,bg="#5a95ff",fg="#fff",bd=0)
+b =Button(frame,text="ADD",font="arial 20 bold", width=6,bg="#5a95ff",fg="#fff",bd=0,command=addtask)
 b.place(x=300 ,y=0)
 
 
@@ -70,8 +70,10 @@ scrollbar.pack(side=RIGHT, fill=BOTH)
 listbox.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=listbox.yview)
 
-
+opentaskfile()
 #delete
-b2 = Button(root,text="DEL",bd=0,font="15px",bg="red").pack(side=BOTTOM, pady=13)
+delete_btn = Button(root, text='Delete Item', bg='Azure', width=15, font=('Helvetica', 12),
+                 command=lambda: deletetask())
+delete_btn.place(x = 120,y=600)
 
 root.mainloop()
